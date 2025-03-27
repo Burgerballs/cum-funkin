@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://c73nrljwu5t7v"]
 
-[ext_resource type="Script" path="res://autoload/scene_manager.gd" id="1_vxw27"]
+[ext_resource type="Script" uid="uid://ps67b2r322l0" path="res://autoload/scene_manager.gd" id="1_vxw27"]
 
 [sub_resource type="Gradient" id="Gradient_gbnsg"]
 offsets = PackedFloat32Array(0, 0.2, 0.8, 1)
-colors = PackedColorArray(0, 0, 0, 0, 0.0980392, 0.0980392, 0.0980392, 1, 0.099986, 0.099986, 0.099986, 1, 0, 0, 0, 0)
+colors = PackedColorArray(1, 1, 1, 0, 0.0980392, 0.0980392, 0.0980392, 1, 0.099986, 0.099986, 0.099986, 1, 1, 1, 1, 0.1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_3101r"]
 gradient = SubResource("Gradient_gbnsg")

@@ -119,11 +119,16 @@ func note_hit(note:Note):
 	var strum:Strum = note.notefield.strums.get_child(note.column)
 	
 	if not note.sustain_ticking:
+		var rating:NoteRating = NoteRating.rate_note(note,autoplay)
+		if rating.rating != "invalid":
+			stats.ratings[rating.rating] += 1
 		strum.material = note.material.duplicate(false)
 		stats.combo += 1
 		stats.notes_hit += 1
 		stats.health += 0.023
-		stats.score += 350
+		stats.score += rating.score
+		if Game.instance:
+			Game.instance.hud.on_note_rate(self,rating)
 	else:
 		stats.health += 0.004
 			

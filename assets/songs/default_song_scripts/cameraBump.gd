@@ -14,4 +14,4 @@ func _process(delta: float) -> void:
 func bump(beat:int):
 	if beat%4 == 0:
 		if camera:
-			camera.zoom += Vector2(0.05,0.05)
+			camera.zoom += Vector2(0.03,0.03)

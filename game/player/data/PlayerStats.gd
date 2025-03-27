@@ -16,3 +16,10 @@ var accuracy:float = 0.0:
 			return 0.0
 		return notes_hit / float(notes_hit + combo_breaks)
 var notes_hit:int = 0
+var ratings:Dictionary = {
+	"marvelous": 0,
+	"sick": 0,
+	"good": 0,
+	"bad": 0,
+	"shit": 0
+}

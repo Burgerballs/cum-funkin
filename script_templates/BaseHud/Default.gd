@@ -11,3 +11,6 @@ func on_beat_hit(beat:int):
 	
 func on_step_hit(step:int):
 	pass
+	
+func on_note_rate(player:Player,_rating:NoteRating):
+	pass

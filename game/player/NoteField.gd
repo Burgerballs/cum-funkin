@@ -4,29 +4,18 @@ var note_data:Array[NoteData] = []:
 		note_data = v
 		note_data = note_data.filter(func(a): if a.player%Game.meta.players.size() == self.player.id: return a)
 		note_data.sort_custom(func(a,b): return a.time < b.time)
-var notes:Node2D = Node2D.new()
+var notes:CanvasGroup = CanvasGroup.new()
 @export var player:Player = null
 var strums:Node2D
-var temp_note = load("res://game/notes/normal.tscn")
+var temp_note = load("res://scenes/notes/normal.tscn")
 var strumline:PackedScene = null
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if SaveMan.get_data("downscroll",false):
 		position.y = 720 - position.y
 #region gen_strums
-	
 	add_child(strums)
 	add_child(notes)
-	## stinky eww
-	#for i in 4:
-		#var strum:Strum = Strum.new()
-		#strum.column = i
-		#strum.sprite_frames = preload("res://assets/NOTE_assets.res")
-		#strum.position.x += (-2 + i)*110.0
-		#strum.position.x += 110.0/2.0
-		#strum.scale = Vector2.ONE*0.7
-		#strum.play_anim(Strum.STATIC)
-		#strums.add_child(strum)
 #endregion
 
 var note_index:int = 0
@@ -54,7 +43,7 @@ func queue_notes():
 		var distance: float = (450 * note.sustain_length) * (note.scroll_speed / Conductor.rate)
 		var scale_shit: float = (note.scale.y / pow(scale.y,2.0))
 		var tail_distance: float = (31 * down_scroll_mult)
-		note.sustain.points[1].y = ((distance * down_scroll_mult) / scale_shit - tail_distance)
+		note.sustain.points[1].y = floor(((distance * down_scroll_mult) / scale_shit - tail_distance))
 		note.tail.position = note.sustain.get_point_position(1) + Vector2(0,31)*down_scroll_mult
 		if down_scroll_mult == -1:
 			note.tail.flip_v = true

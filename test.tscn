@@ -3,11 +3,17 @@
 [ext_resource type="Texture2D" uid="uid://q5njjjkw7ikf" path="res://icon.svg" id="1_5l4v1"]
 
 [sub_resource type="GDScript" id="GDScript_flc5q"]
-script/source = "extends Node2D
+script/source = "extends CanvasGroup
 @onready var sprite_2d: Sprite2D = $Sprite2D
 func _ready() -> void:
-	sprite_2d.transform = sprite_2d.get_relative_transform_to_parent(self) * sprite_2d.transform*0.5
-#@onready var sus: Sprite2D = $sus
+	var tex:Texture2D = preload(\"res://icon.svg\")
+	for i in 10000:
+		var s = Sprite2D.new()
+		s.texture = tex
+		s.centered = false
+		s.position = Vector2(randf_range(0,1280),randf_range(0,720))
+		add_child(s)
+	pass
 #
 #
 #func _ready():
@@ -16,7 +22,7 @@ func _ready() -> void:
 	#img.save_png(\"res://sustain.png\")
 "
 
-[node name="Test" type="Node2D"]
+[node name="Test" type="CanvasGroup"]
 script = SubResource("GDScript_flc5q")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

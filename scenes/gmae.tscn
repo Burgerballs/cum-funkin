@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgla7xsm2aocj"]
+
+[ext_resource type="Script" uid="uid://04r583sa5gkx" path="res://scenes/gmae.gd" id="1_eo62h"]
+[ext_resource type="Script" uid="uid://by4kkdi53j8gt" path="res://scenes/hud/hud.gd" id="2_ymdub"]
+[ext_resource type="Script" uid="uid://dl4nyde7pkp0a" path="res://game/event_manager.gd" id="4_w5otg"]
+
+[node name="gmae" type="Node2D"]
+script = ExtResource("1_eo62h")
+metadata/_edit_horizontal_guides_ = [-264.0]
+
+[node name="tracks" type="Node" parent="."]
+
+[node name="UI Layer" type="CanvasLayer" parent="."]
+
+[node name="HUD" type="Control" parent="UI Layer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(640, 360)
+script = ExtResource("2_ymdub")
+
+[node name="event_manager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("4_w5otg")

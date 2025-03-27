@@ -4,3 +4,6 @@ class_name UISkin extends Resource
 @export var bad_texture:Texture2D
 @export var good_texture:Texture2D
 @export var sick_texture:Texture2D
+@export var marvelous_texture:Texture2D
+
+@export var combo_texture:Texture2D

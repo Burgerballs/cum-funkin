@@ -10,7 +10,6 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-var paused:bool = false
 func _input(event: InputEvent) -> void:
 	
 	if event is InputEventKey:
@@ -19,6 +18,3 @@ func _input(event: InputEvent) -> void:
 			if event.keycode == KEY_ENTER:
 				var tree = get_tree()
 				tree.paused = !tree.paused
-
-				paused = !paused
-				

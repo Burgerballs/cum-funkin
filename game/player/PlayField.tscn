@@ -1,11 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://37hhlhkot4na"]
+[gd_scene load_steps=3 format=3 uid="uid://bki2jw8ojcs7c"]
 
-[ext_resource type="Script" path="res://game/player/beat_battle.gd" id="1_u1bg2"]
-[ext_resource type="Script" path="res://game/player/NoteField.gd" id="2_ide3r"]
+[ext_resource type="Script" uid="uid://clr6xn7pyy6ib" path="res://game/player/beat_battle.gd" id="1_u1bg2"]
+[ext_resource type="Script" uid="uid://bnut3efloapnq" path="res://game/player/NoteField.gd" id="2_ide3r"]
 
 [node name="PlayField" type="Node2D"]
 script = ExtResource("1_u1bg2")
-does_input = true
 
 [node name="NoteField" type="Node2D" parent="."]
 script = ExtResource("2_ide3r")

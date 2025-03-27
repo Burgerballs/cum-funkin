@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="ChartMeta" load_steps=15 format=3 uid="uid://cauanqx6tdm0y"]
+
+[ext_resource type="Script" uid="uid://do4xfvs8bawrr" path="res://game/events/Event.gd" id="1_4t6iu"]
+[ext_resource type="PackedScene" uid="uid://b4sj84ynwumgv" path="res://scenes/characters/dad.tscn" id="1_uhsbn"]
+[ext_resource type="Script" uid="uid://1rbavl4c2tqk" path="res://game/player/data/player_config.gd" id="2_5hr3t"]
+[ext_resource type="PackedScene" uid="uid://bygu84dd16y4y" path="res://scenes/hud/test_hud.tscn" id="3_6ydn2"]
+[ext_resource type="Script" uid="uid://cgjbb51b1ea83" path="res://game/chart/ChartMeta.gd" id="3_a0kqf"]
+[ext_resource type="AudioStream" uid="uid://b7uohb4xoslhm" path="res://assets/songs/dad battle/Dadbattle_Inst.ogg" id="3_qx60g"]
+[ext_resource type="PackedScene" uid="uid://bc6bkwlvdvn5k" path="res://scenes/characters/bf.tscn" id="4_avx73"]
+[ext_resource type="Script" uid="uid://8dllkb4l1bub" path="res://assets/songs/default_song_scripts/cameraBump.gd" id="4_yju3d"]
+[ext_resource type="Script" uid="uid://sinrrx6q8crj" path="res://assets/songs/default_song_scripts/pause.gd" id="5_uqh10"]
+[ext_resource type="AudioStream" uid="uid://caxrle8214m4l" path="res://assets/songs/dad battle/Dadbattle_Voices.ogg" id="9_7hftg"]
+[ext_resource type="PackedScene" uid="uid://cyd7777vg0jb3" path="res://scenes/stages/stage.tscn" id="10_go2q6"]
+[ext_resource type="Resource" uid="uid://cp2wsuaqmxne7" path="res://assets/ui_skins/default.tres" id="11_joqgy"]
+
+[sub_resource type="Resource" id="Resource_jd54w"]
+script = ExtResource("2_5hr3t")
+has_input = false
+autoplay = true
+
+[sub_resource type="Resource" id="Resource_8xbaq"]
+script = ExtResource("2_5hr3t")
+has_input = true
+autoplay = false
+
+[resource]
+script = ExtResource("3_a0kqf")
+inst = ExtResource("3_qx60g")
+voices = Array[AudioStream]([ExtResource("9_7hftg")])
+cpu_character = ExtResource("1_uhsbn")
+player_character = ExtResource("4_avx73")
+song_scripts = Array[Script]([ExtResource("4_yju3d"), ExtResource("5_uqh10")])
+script_packs = Array[Script]([])
+ui_skin = ExtResource("11_joqgy")
+events = Array[ExtResource("1_4t6iu")]([])
+format = 0
+stage = ExtResource("10_go2q6")
+players = Array[ExtResource("2_5hr3t")]([SubResource("Resource_jd54w"), SubResource("Resource_8xbaq")])
+hud = ExtResource("3_6ydn2")

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bunc1vkefy7yl"]
+
+[ext_resource type="Script" uid="uid://btgp83682w65u" path="res://scenes/autoload/volume_man.gd" id="1_l6tne"]
+
+[node name="VolumeMan" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_l6tne")

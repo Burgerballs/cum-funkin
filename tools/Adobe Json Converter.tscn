@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://685c4n3n15v1"]
 
-[ext_resource type="Script" path="res://tools/Adobe Json Converter.gd" id="3_3gd5o"]
-[ext_resource type="Script" path="res://tools/Choose Sprites.gd" id="5_wo2vc"]
+[ext_resource type="Script" uid="uid://c4ajso4ywhel6" path="res://tools/Adobe Json Converter.gd" id="3_3gd5o"]
+[ext_resource type="Script" uid="uid://yblfd1cd2ka4" path="res://tools/Choose Sprites.gd" id="5_wo2vc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ny0k"]
 bg_color = Color(0.164706, 0.12549, 0.192157, 1)

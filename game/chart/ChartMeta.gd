@@ -16,8 +16,9 @@ class_name ChartMeta extends Resource
 @export var script_packs:Array[Script]
 
 @export_category("other")
+@export var ui_skin:UISkin = preload("res://assets/ui_skins/default.tres")
 @export var events:Array[Event] = []
 @export var format:Chart.ChartFormat = 0
 @export var stage:PackedScene = PackedScene.new()
 @export var players:Array[PlayerConfig] = []
-@export var hud:PackedScene = null
+@export var hud:PackedScene = preload("res://scenes/hud/test_hud.tscn")

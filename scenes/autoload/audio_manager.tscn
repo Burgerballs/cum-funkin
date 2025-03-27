@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://btj62m4072dq8"]
+
+[ext_resource type="Script" uid="uid://bhhirqlx7xafq" path="res://scenes/autoload/audio_manager.gd" id="1_ggj64"]
+[ext_resource type="AudioStream" uid="uid://cgfi22dibnw6k" path="res://assets/sounds/scrollMenu.ogg" id="2_8bcpd"]
+[ext_resource type="AudioStream" uid="uid://du36ctmei7qj5" path="res://assets/sounds/confirmMenu.ogg" id="3_3k8db"]
+
+[node name="AudioManager" type="Node"]
+process_mode = 3
+script = ExtResource("1_ggj64")
+
+[node name="sfx" type="Node" parent="."]
+
+[node name="menu_scroll" type="AudioStreamPlayer" parent="sfx"]
+stream = ExtResource("2_8bcpd")
+
+[node name="menu_confirm" type="AudioStreamPlayer" parent="sfx"]
+stream = ExtResource("3_3k8db")
+
+[node name="music" type="AudioStreamPlayer" parent="."]

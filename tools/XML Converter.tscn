@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=3 uid="uid://b8pnkaxh8qdwe"]
 
-[ext_resource type="Script" path="res://tools/XML Converter.gd" id="1_72kxm"]
+[ext_resource type="Script" uid="uid://dwocs5yj8lb7" path="res://tools/XML Converter.gd" id="1_72kxm"]
 [ext_resource type="Texture2D" uid="uid://q5njjjkw7ikf" path="res://icon.svg" id="1_sl3og"]
-[ext_resource type="Script" path="res://tools/Choose Sprites.gd" id="2_kmxvy"]
+[ext_resource type="Script" uid="uid://yblfd1cd2ka4" path="res://tools/Choose Sprites.gd" id="2_kmxvy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ny0k"]
 bg_color = Color(0.164706, 0.12549, 0.192157, 1)

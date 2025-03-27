@@ -1,18 +1,19 @@
-[gd_resource type="Resource" script_class="ChartMeta" load_steps=16 format=3 uid="uid://cl31o2ai5m7u2"]
+[gd_resource type="Resource" script_class="ChartMeta" load_steps=17 format=3 uid="uid://cl31o2ai5m7u2"]
 
-[ext_resource type="PackedScene" uid="uid://bts1euq4qesho" path="res://game/characters/sillyTheBilly.tscn" id="1_aug4w"]
-[ext_resource type="Script" path="res://game/chart/ChartMeta.gd" id="1_j7mbi"]
+[ext_resource type="PackedScene" uid="uid://bts1euq4qesho" path="res://scenes/characters/sillyTheBilly.tscn" id="1_aug4w"]
+[ext_resource type="Script" uid="uid://cgjbb51b1ea83" path="res://game/chart/ChartMeta.gd" id="1_j7mbi"]
 [ext_resource type="AudioStream" uid="uid://cdy1ytbs3fnhw" path="res://assets/songs/silly-billy/Inst.ogg" id="1_y55jn"]
-[ext_resource type="Script" path="res://game/events/Event.gd" id="2_do68c"]
-[ext_resource type="PackedScene" uid="uid://dm02288habbhj" path="res://game/hud/silly_billy.tscn" id="3_181st"]
+[ext_resource type="Script" uid="uid://do4xfvs8bawrr" path="res://game/events/Event.gd" id="2_do68c"]
+[ext_resource type="PackedScene" uid="uid://dm02288habbhj" path="res://scenes/hud/silly_billy.tscn" id="3_181st"]
 [ext_resource type="AudioStream" uid="uid://dkaqvpr055ud" path="res://assets/songs/silly-billy/Voices.ogg" id="3_sq0yq"]
-[ext_resource type="Script" path="res://game/player/data/player_config.gd" id="5_gerk8"]
-[ext_resource type="PackedScene" uid="uid://ckd7ef7cdg5th" path="res://game/characters/sillyBF.tscn" id="5_x1axh"]
-[ext_resource type="Script" path="res://assets/songs/default_song_scripts/cameraBump.gd" id="6_yf7sp"]
-[ext_resource type="Script" path="res://assets/songs/default_song_scripts/pause.gd" id="7_4qpy7"]
-[ext_resource type="Script" path="res://assets/songs/silly-billy/scripts/videoLoader.gd" id="10_ikey0"]
-[ext_resource type="Script" path="res://assets/songs/silly-billy/scripts/mainScript.gd" id="11_vabho"]
-[ext_resource type="PackedScene" uid="uid://cu1mjvdukin1e" path="res://game/stages/theMirror.tscn" id="13_4qs5u"]
+[ext_resource type="Script" uid="uid://1rbavl4c2tqk" path="res://game/player/data/player_config.gd" id="5_gerk8"]
+[ext_resource type="PackedScene" uid="uid://ckd7ef7cdg5th" path="res://scenes/characters/sillyBF.tscn" id="5_x1axh"]
+[ext_resource type="Script" uid="uid://8dllkb4l1bub" path="res://assets/songs/default_song_scripts/cameraBump.gd" id="6_yf7sp"]
+[ext_resource type="Script" uid="uid://sinrrx6q8crj" path="res://assets/songs/default_song_scripts/pause.gd" id="7_4qpy7"]
+[ext_resource type="Script" uid="uid://23he0hhxscks" path="res://assets/songs/silly-billy/scripts/videoLoader.gd" id="10_ikey0"]
+[ext_resource type="Script" uid="uid://vi5xg8qse5fe" path="res://assets/songs/silly-billy/scripts/mainScript.gd" id="11_vabho"]
+[ext_resource type="PackedScene" uid="uid://cu1mjvdukin1e" path="res://scenes/stages/theMirror.tscn" id="13_4qs5u"]
+[ext_resource type="Resource" uid="uid://cp2wsuaqmxne7" path="res://assets/ui_skins/default.tres" id="13_mog1m"]
 
 [sub_resource type="Resource" id="Resource_1oaoc"]
 script = ExtResource("5_gerk8")
@@ -32,6 +33,7 @@ cpu_character = ExtResource("1_aug4w")
 player_character = ExtResource("5_x1axh")
 song_scripts = Array[Script]([ExtResource("6_yf7sp"), ExtResource("7_4qpy7"), ExtResource("10_ikey0"), ExtResource("11_vabho")])
 script_packs = Array[Script]([])
+ui_skin = ExtResource("13_mog1m")
 events = Array[ExtResource("2_do68c")]([])
 format = 0
 stage = ExtResource("13_4qs5u")

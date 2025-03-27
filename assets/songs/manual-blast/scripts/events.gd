@@ -5,8 +5,8 @@ extends Node
 #var dumb3:SpriteFrames = preload("res://assets/characters/hog/scorched.res")
 # Called when the node enters the scene tree for the first time.
 
-@onready var scorched = load("res://game/characters/scorched.tscn")
-@onready var scorched_glitch = load("res://game/characters/scorched_glitch.tscn")
+@onready var scorched = load("res://scenes/characters/scorched.tscn")
+@onready var scorched_glitch = load("res://scenes/characters/scorched_glitch.tscn")
 
 func _ready() -> void:
 	name = "events"
