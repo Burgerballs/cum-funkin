@@ -39,6 +39,8 @@ func _ready():
 	Conductor.reset()
 	event_manager.events = meta.events + chart.events
 	event_manager.events.sort_custom(func(a,b): return a.time < b.time)
+	for i in event_manager.events:
+		i._ready()
 	Conductor.beat_hit.connect(beat_hit)
 	hud.queue_free()
 	

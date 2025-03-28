@@ -12,6 +12,7 @@ signal event_fired(ev:Event)
 func _process(delta: float) -> void:
 	for i in range(cur_event,events.size()):
 		var ev = events[i]
+		ev._process(delta)
 		if Conductor.time >= ev.time:
 			cur_event += 1
 			event_fired.emit(ev)

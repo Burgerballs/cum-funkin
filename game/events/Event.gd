@@ -6,3 +6,7 @@ func get_event_name():
 var time:float = 0.0
 func fire():
 	pass
+func _process(delta:float):
+	pass
+func _ready():
+	pass
