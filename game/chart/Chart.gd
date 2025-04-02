@@ -49,7 +49,7 @@ static func load_chart(name:String,diff:String,format:ChartFormat = ChartFormat.
 							e = PsychEvent.new(event[0] / 1000.0, raw_event[1 + mod], raw_event[2])
 							e.name = e_name
 						_chart.events.push_back(e)
-			
+			## very sex :D
 			var sexi:int = 0
 			## bpm change shit
 			
@@ -60,9 +60,9 @@ static func load_chart(name:String,diff:String,format:ChartFormat = ChartFormat.
 				var _bpm:float = _chart.bpms.back().bpm
 				if sexi > 0:
 					_time += (60.0/_bpm) * 4.0
+				sexi += 1
 				if sex.get("changeBPM",false):
 					_chart.bpms.append(BpmChangeEvent.new(_time,sex.get("bpm",100.0),16.0*sexi))
-				sexi += 1
 				cam_event = CameraFocusEvent.new(_time,sex.mustHitSection)
 				_chart.events.append(cam_event)
 				

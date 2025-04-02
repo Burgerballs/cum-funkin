@@ -38,9 +38,9 @@ func _init() -> void:
 func _ready():
 	Conductor.reset()
 	event_manager.events = meta.events + chart.events
-	event_manager.events.sort_custom(func(a,b): return a.time < b.time)
 	for i in event_manager.events:
 		i._ready()
+	event_manager.events.sort_custom(func(a,b): return a.time < b.time)
 	Conductor.beat_hit.connect(beat_hit)
 	hud.queue_free()
 	
@@ -102,6 +102,8 @@ func _ready():
 		player.stream.set_sync_stream(s+1,i)
 		s += 1
 	song_player = player
+	Conductor.audio.pitch_scale = Conductor.rate
+
 		
 #endregion
 #region stage shits
@@ -137,8 +139,9 @@ func _ready():
 
 var last_stream_time:float = 0.0
 var cur_event:int = 0
+var song_time:float
 func _process(delta):
-	var song_time:float = Conductor.audio.get_playback_position() + AudioServer.get_time_since_last_mix()
+	song_time = Conductor.audio.get_playback_position() + AudioServer.get_time_since_last_mix()
 	if Conductor.last_time == song_time or not song_started:
 		Conductor.time += delta
 	else:
@@ -197,4 +200,5 @@ func skip_time(time_to:float):
 		if not i.autoplay:
 			for n:Note in i.notefield.notes.get_children():
 				if (n.time) - Conductor.time < n.og_sustain_length + 2.2:
+					i.note_hit(n,true)
 					n.free()

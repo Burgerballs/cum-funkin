@@ -47,7 +47,7 @@ func _process(delta):
 	if _cur_anim.begins_with("sing"):
 		_sing_timer += delta
 	
-	if _sing_timer > Conductor.step_crochet * sing_length:
+	if _sing_timer >= Conductor.step_crochet * sing_length:
 		if _cur_anim.begins_with("sing"):
 			dance()
 

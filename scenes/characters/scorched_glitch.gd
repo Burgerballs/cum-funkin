@@ -12,8 +12,6 @@ var cur_char:int = 0:
 func play_anim(anim:StringName,force:bool = false):
 	super.play_anim(anim,force)
 	
-func _process(delta: float) -> void:
-	super._process(delta)
-	for i in randi_range(1,4):
-		await sprite.frame_changed
-	cur_char = randi()%2
+func _physics_process(delta: float) -> void:
+	if Engine.get_physics_frames() %2 == 0:
+		cur_char = randi()%2

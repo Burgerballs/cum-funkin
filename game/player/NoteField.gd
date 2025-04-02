@@ -4,7 +4,7 @@ var note_data:Array[NoteData] = []:
 		note_data = v
 		note_data = note_data.filter(func(a): if a.player%Game.meta.players.size() == self.player.id: return a)
 		note_data.sort_custom(func(a,b): return a.time < b.time)
-var notes:CanvasGroup = CanvasGroup.new()
+var notes:Node2D = Node2D.new()
 @export var player:Player = null
 var strums:Node2D
 var temp_note = load("res://scenes/notes/normal.tscn")
@@ -27,8 +27,9 @@ func queue_notes():
 		var down_scroll_mult = 1.0 if not SaveMan.get_data("downscroll",false) else -1.0
 		if data.time > Conductor.time + (2.2/(scrollspeed/Conductor.rate)):
 			break
-		
+		var hudskin = Game.instance.hud.skin
 		var note:Note = temp_note.instantiate()
+		note.scale = Vector2(hudskin.noteskin_scale,hudskin.noteskin_scale)
 		note.column = data.column
 		note.time = data.time
 		note.sustain_length = max(data.length,0.0)

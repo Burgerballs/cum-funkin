@@ -12,7 +12,7 @@ var cur_item:int = 0:
 var cur_diff_str:String = "hard"
 @onready var diff_label: Label = $ui/PanelContainer/VBoxContainer/diff
 @onready var rate_label: Label = $ui/PanelContainer/VBoxContainer/rate
-
+static var rate:float = 1.0
 var cur_rate:float = 1.0:
 	set(v):
 		cur_rate = v
@@ -42,6 +42,7 @@ func _ready() -> void:
 		count += 1
 	temp_item.queue_free()
 	change_item(0)
+	cur_rate = rate
 	pass # Replace with function body.
 var song_loaded:bool = false
 var song_loading:bool = false
@@ -70,6 +71,7 @@ func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_right"):
 		if event.shift_pressed:
 				cur_rate += 0.1
+				
 		else:
 			change_diff(1)
 	if Input.is_action_just_pressed("ui_accept"):

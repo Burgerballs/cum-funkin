@@ -123,6 +123,14 @@ text = "vsync"
 script = ExtResource("3_rh5dl")
 linked_field = "vsync"
 
+[node name="normalize_pitch" type="CheckBox" parent="UI/pages/gameplay/VBoxContainer/bools"]
+layout_mode = 2
+tooltip_text = "repitches samples of audio to make them sound normal when changeing the playback rate
+this will rise the cpu use making performance worse!!"
+text = "normalize playback rate"
+script = ExtResource("3_rh5dl")
+linked_field = "normalize_pitch"
+
 [node name="HSeparator2" type="HSeparator" parent="UI/pages/gameplay/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 10

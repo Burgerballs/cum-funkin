@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="friday night funkin'"
-run/main_scene="res://scenes/menus/titlescreen.tscn"
+config/name="Friday Night Funkin'"
+run/main_scene="uid://sogs1kxwes4l"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -97,6 +97,8 @@ fullscreen={
 [physics]
 
 common/max_physics_steps_per_frame=1
+2d/physics_engine="Dummy"
+3d/physics_engine="Dummy"
 
 [rendering]
 
@@ -104,6 +106,5 @@ gl_compatibility/force_angle_on_devices=[]
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 viewport/hdr_2d=true
-viewport/transparent_background=true
 2d/snap/snap_2d_transforms_to_pixel=true
 2d/snap/snap_2d_vertices_to_pixel=true

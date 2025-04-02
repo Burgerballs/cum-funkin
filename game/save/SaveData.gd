@@ -20,6 +20,7 @@ class_name SaveDat extends Resource
 	set(v):
 		volume = v
 		AudioServer.set_bus_volume_db(0,linear_to_db(volume))
+@export var normalize_pitch:bool = false
 		
 @export var keybinds:Dictionary = {
 	"note_left" : ["left","d"],

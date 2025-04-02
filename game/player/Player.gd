@@ -19,7 +19,6 @@ func _init(_notefield:NoteField,_has_input:bool = true,_autoplay:bool = false) -
 	self.notefield = _notefield
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Input.use_accumulated_input = false
 	pressed.resize(keycount)
 	pressed.fill(false)
 
@@ -115,11 +114,11 @@ func note_miss(note:Note):
 	print("missed a note")
 	pass
 	
-func note_hit(note:Note):
+func note_hit(note:Note,cheat:bool = false):
 	var strum:Strum = note.notefield.strums.get_child(note.column)
 	
 	if not note.sustain_ticking:
-		var rating:NoteRating = NoteRating.rate_note(note,autoplay)
+		var rating:NoteRating = NoteRating.rate_note(note,autoplay or cheat)
 		if rating.rating != "invalid":
 			stats.ratings[rating.rating] += 1
 		strum.material = note.material.duplicate(false)

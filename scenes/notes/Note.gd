@@ -4,6 +4,11 @@ class_name Note extends Node2D
 @onready var sustain:Line2D = $sustain
 @onready var tail: Sprite2D = $sustain/tail
 @export var note_colors:Array[Color] = []
+@export var rgb_shader:bool = false
+
+@export var skinable:bool = false
+
+
 var notefield:NoteField = null
 ## backend ##
 var cumlumn:int:

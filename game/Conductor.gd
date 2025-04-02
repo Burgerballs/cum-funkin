@@ -1,23 +1,20 @@
 extends Node2D
 signal beat_hit(beat:int)
 signal step_hit(step:int)
-var pitch_shift:AudioEffectPitchShift = null
+		
 var rate:float = 1.0:
 	set(v):
 		rate = max(v,0.01)
 		Engine.time_scale = rate
 		if audio != null:
 			audio.pitch_scale = rate
-			print("haii")
-			pitch_shift.pitch_scale = 1.0 / audio.pitch_scale
+
 
 var audio:AudioStreamPlayer = null
 # bpm change balls
 var bpm_changes:Array[BpmChangeEvent] = []:
 	set(v):
 		bpm_changes = v
-		print("changed bpm map")
-
 var time:float = 0.0
 var last_time:float = 0.0
 # beat shit
@@ -45,7 +42,6 @@ func queue_bpm_change(change_event:BpmChangeEvent):
 		bpm_changes.sort_custom(func(a,b): a.time < b.time)
 
 func _ready():
-	pitch_shift = AudioServer.get_bus_effect(1,0)
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -78,4 +74,3 @@ func reset():
 	bpm = 100.0
 	beat = 0.0
 	step = 0.0
-	rate = 1.0

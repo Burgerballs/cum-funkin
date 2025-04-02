@@ -37,7 +37,7 @@ static func get_timeings(judge_diff:int):
 	var defaults = [22.5,45.0,90.0,135.0,180.0]
 	return defaults
 
-static func rate_note(note:Note,autoplay:bool = false,judge_diff:int = JUDGE_4):
+static func rate_note(note:Note,autoplay:bool = false,judge_diff:int = JUDGE_4,override_diff:float = 0):
 	var times = timeing_dict
 	var _rate := NoteRating.new()
 	_rate.hit_diff = abs(note.time - Conductor.time)*1000.0

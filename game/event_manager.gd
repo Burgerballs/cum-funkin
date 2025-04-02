@@ -10,15 +10,12 @@ var cur_event:int = 0
 signal event_fired(ev:Event)
 
 func _process(delta: float) -> void:
-	for i in range(cur_event,events.size()):
-		var ev = events[i]
-		ev._process(delta)
-		if Conductor.time >= ev.time:
-			cur_event += 1
-			event_fired.emit(ev)
-			ev.fire()
-		else:
-			break
+	while cur_event < events.size() and\
+	Conductor.time >= events[cur_event].time:
+		var ev = events[cur_event]
+		cur_event += 1
+		event_fired.emit(ev)
+		ev.fire()
 func fire_event(ev:Event):
 	ev.fire()
 func queue_event(ev:Event):
