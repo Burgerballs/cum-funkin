@@ -15,6 +15,7 @@ var audio:AudioStreamPlayer = null
 var bpm_changes:Array[BpmChangeEvent] = []:
 	set(v):
 		bpm_changes = v
+var play_head:float = 0.0
 var time:float = 0.0
 var last_time:float = 0.0
 # beat shit
@@ -46,11 +47,23 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta:float):
+	last_time = time
 	for i in bpm_changes:
 		if time > i.time and _last_change != i:
 			_last_change = i
 			bpm = i.bpm
 			continue
+	if audio:
+		if play_head == last_time:
+			play_head += delta
+		else:
+			play_head = time
+		if audio.playing:
+			time = audio.get_playback_position()
+			
+			
+		else:
+			time += delta
 	update(delta)
 func update(delta:float):
 	var last_step = step
@@ -66,11 +79,13 @@ func update(delta:float):
 			step_hit.emit(floori(i))
 	if floori(beat) != floori(last_beat):
 		for i in range(last_beat + 1, beat + 1):
+			print("BEAT HIT %d!!"%floori(i))
 			beat_hit.emit(floori(i))
 func reset():
 	bpm_changes.clear()
 	time = 0.0
 	last_time = 0
+	play_head = 0
 	bpm = 100.0
 	beat = 0.0
 	step = 0.0

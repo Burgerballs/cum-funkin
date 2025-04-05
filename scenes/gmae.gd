@@ -141,12 +141,12 @@ var last_stream_time:float = 0.0
 var cur_event:int = 0
 var song_time:float
 func _process(delta):
-	song_time = Conductor.audio.get_playback_position() + AudioServer.get_time_since_last_mix()
-	if Conductor.last_time == song_time or not song_started:
-		Conductor.time += delta
-	else:
-		Conductor.time = song_time
-		Conductor.last_time = song_time
+	song_time = Conductor.audio.get_playback_position()
+	#if Conductor.last_time == song_time or not song_started:
+		#Conductor.time += delta
+	#else:
+		#Conductor.time = song_time
+		#Conductor.last_time = song_time
 	if Conductor.time >= 0.0 and not song_started:
 		song_started = true
 		Conductor.audio.play()

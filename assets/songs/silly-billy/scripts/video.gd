@@ -12,12 +12,12 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	player.paused = game.process_mode == Node.PROCESS_MODE_DISABLED
-	if absf(player.stream_position - Conductor.time) > 0.015:
-		player.stream_position = Conductor.time
+	if absf(player.stream_position - Conductor.play_head) > 0.015:
+		player.stream_position = Conductor.play_head
 	
 	if game.song_started and player.paused:
 		player.paused = false
-		player.stream_position = Conductor.time
+		player.stream_position = Conductor.play_head
 
 
 func _on_video_stream_player_finished() -> void:
