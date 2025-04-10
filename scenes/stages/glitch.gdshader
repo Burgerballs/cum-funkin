@@ -1,5 +1,5 @@
 shader_type canvas_item;
-#define TILE_SIZE 16.0
+#define TILE_SIZE 8.0
 varying float wow;
 uniform float Amount = 1.0;
 varying vec2 size;

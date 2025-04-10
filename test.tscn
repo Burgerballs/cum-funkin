@@ -1,11 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://ddt0pkyg6v64f"]
+[gd_scene load_steps=4 format=3 uid="uid://ddt0pkyg6v64f"]
 
-[sub_resource type="GDScript" id="GDScript_flc5q"]
-script/source = "extends Node2D
-func _ready() -> void:
-	
-	pass
-"
+[ext_resource type="Shader" uid="uid://d4i6gsl8lrpby" path="res://assets/characters/sillyTheBilly/cromakey.gdshader" id="1_8uh7m"]
+[ext_resource type="VideoStream" uid="uid://cmaclpeh6mcrr" path="res://assets/characters/sillyTheBilly/SILLIEST_LYRICE_DONE.mp4" id="2_8uh7m"]
 
-[node name="Test" type="Node3D"]
-script = SubResource("GDScript_flc5q")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ppyta"]
+shader = ExtResource("1_8uh7m")
+shader_parameter/key_color = Color(0, 1, 0, 1)
+shader_parameter/hue_threshold = 0.1
+shader_parameter/chroma_threshold = 0.3
+shader_parameter/feathering = 0.1
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer"]
+material = SubResource("ShaderMaterial_ppyta")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 349.0
+offset_bottom = 696.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("2_8uh7m")
+volume_db = -80.0
+autoplay = true
+loop = true
+buffering_msec = 100
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(640, 720)
+zoom = Vector2(0.6, 0.6)

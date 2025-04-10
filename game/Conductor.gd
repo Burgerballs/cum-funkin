@@ -16,6 +16,7 @@ var bpm_changes:Array[BpmChangeEvent] = []:
 	set(v):
 		bpm_changes = v
 var time:float = 0.0
+var penis_head:float = 0.0
 var last_time:float = 0.0
 # beat shit
 var bpm:float = 100.0
@@ -53,6 +54,10 @@ func _process(delta:float):
 			continue
 	update(delta)
 func update(delta:float):
+	if audio:
+		if audio.playing:
+			time = audio.get_playback_position() + AudioServer.get_time_since_last_mix()
+		
 	var last_step = step
 	var last_beat = beat
 	## fall back shit ig
@@ -61,10 +66,10 @@ func update(delta:float):
 	beat = _last_change.step/4.0 + ((time - _last_change.time)/beat_crochet)
 	step = _last_change.step + ((time - _last_change.time)/step_crochet)
 	## some of this code i dont know how it works and i made it sorry :[
-	if floori(step) != floori(last_step):
+	if floori(step) > floori(last_step):
 		for i in range(last_step + 1, step + 1):
 			step_hit.emit(floori(i))
-	if floori(beat) != floori(last_beat):
+	if floori(beat) > floori(last_beat):
 		for i in range(last_beat + 1, beat + 1):
 			beat_hit.emit(floori(i))
 func reset():

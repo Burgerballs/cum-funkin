@@ -16,5 +16,7 @@ func _input(event: InputEvent) -> void:
 		event = event as InputEventKey
 		if event.is_pressed():
 			if event.keycode == KEY_ENTER:
-				var tree = get_tree()
-				tree.paused = !tree.paused
+				if Game.instance.process_mode == Node.PROCESS_MODE_DISABLED:
+					Game.instance.process_mode = Node.PROCESS_MODE_INHERIT
+				else:
+					Game.instance.process_mode = Node.PROCESS_MODE_DISABLED

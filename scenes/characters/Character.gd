@@ -37,7 +37,8 @@ func play_anim(anim:StringName,force:bool = false) -> void:
 	
 func dance():
 	_sing_timer = 0
-	play_anim(dance_steps[cur_dance_step%dance_steps.size()])
+	if dance_steps.size() > 0:
+		play_anim(dance_steps[cur_dance_step%dance_steps.size()])
 	
 func sing(dir:int,suffix:String = ""):
 	_sing_timer = 0

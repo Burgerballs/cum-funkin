@@ -7,8 +7,6 @@ class_name Note extends Node2D
 @export var rgb_shader:bool = false
 
 @export var skinable:bool = false
-
-
 var notefield:NoteField = null
 ## backend ##
 var cumlumn:int:

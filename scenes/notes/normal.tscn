@@ -13,6 +13,7 @@ shader_parameter/enabled = true
 shader_parameter/note_color = Color(0, 1, 0.916667, 1)
 
 [node name="Normal" type="Node2D"]
+z_index = 1
 material = SubResource("ShaderMaterial_nr0wq")
 script = ExtResource("1_ubnsc")
 note_colors = Array[Color]([Color(0.760784, 0.294118, 0.6, 1), Color(0, 1, 1, 1), Color(0.0705882, 0.980392, 0.0196078, 1), Color(0.976471, 0.223529, 0.247059, 1)])
@@ -25,7 +26,6 @@ animation = &"left"
 [node name="sustain" type="Line2D" parent="."]
 modulate = Color(1, 1, 1, 0.6)
 z_index = -1
-z_as_relative = false
 use_parent_material = true
 points = PackedVector2Array(0, 0, 0, 220)
 width = 50.0
@@ -35,5 +35,5 @@ texture_mode = 1
 [node name="tail" type="Sprite2D" parent="sustain"]
 texture_filter = 2
 use_parent_material = true
-position = Vector2(0, 251.5)
+position = Vector2(0, 250.5)
 texture = ExtResource("3_ke161")

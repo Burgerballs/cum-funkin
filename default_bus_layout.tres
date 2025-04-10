@@ -1,12 +1,7 @@
-[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://bwe8smeiugi77"]
-
-[sub_resource type="AudioEffectLimiter" id="AudioEffectLimiter_j3pel"]
-resource_name = "Limiter"
+[gd_resource type="AudioBusLayout" format=3 uid="uid://bwe8smeiugi77"]
 
 [resource]
 bus/0/volume_db = 0.0272655
-bus/0/effect/0/effect = SubResource("AudioEffectLimiter_j3pel")
-bus/0/effect/0/enabled = true
 bus/1/name = &"music"
 bus/1/solo = false
 bus/1/mute = false

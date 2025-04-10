@@ -1,11 +1,87 @@
-[gd_scene load_steps=18 format=3 uid="uid://bts1euq4qesho"]
+[gd_scene load_steps=22 format=3 uid="uid://bts1euq4qesho"]
 
-[ext_resource type="Script" uid="uid://ktoq0eveoecs" path="res://scenes/characters/Character.gd" id="1_rxewt"]
+[ext_resource type="Script" uid="uid://d1bednqlf0la3" path="res://scenes/characters/silly_the_billy.gd" id="1_gk6q3"]
 [ext_resource type="Texture2D" uid="uid://vycn3e3cqk2w" path="res://assets/icons/icon-sillyTheBilly.png" id="2_lc4dn"]
 [ext_resource type="SpriteFrames" uid="uid://5qjfe68xjlvh" path="res://assets/characters/sillyTheBilly/Lookalike_Assets.res" id="3_rqftf"]
 [ext_resource type="Script" uid="uid://bi317adbu3p77" path="res://scenes/characters/AnimatedSprite.gd" id="4_2vpyk"]
 [ext_resource type="SpriteFrames" uid="uid://d2ouue6xegtgr" path="res://assets/characters/sillyTheBilly/Lookalike_Alt.res" id="5_ubvnf"]
 [ext_resource type="SpriteFrames" uid="uid://8ijuih38v5u4" path="res://assets/characters/sillyTheBilly/unshrink.res" id="6_6fmrk"]
+
+[sub_resource type="Shader" id="Shader_0sykp"]
+code = "shader_type canvas_item;
+
+void vertex() {
+	// Called for every vertex the material is visible on.
+}
+vec3 hueShift(vec3 color, float hue) {
+    const vec3 k = vec3(0.57735, 0.57735, 0.57735);
+    float cosAngle = cos(hue);
+    return vec3(color * cosAngle + cross(k, color) * sin(hue) + k * dot(k, color) * (1.0 - cosAngle));
+}
+void fragment() {
+	COLOR.rgb += hueShift(COLOR.rgb,TIME*TAU)*6.0;
+	// Called for every pixel the material is visible on.
+}
+
+//void light() {
+//	// Called for every pixel for every light affecting the CanvasItem.
+//	// Uncomment to replace the default light processing function with this one.
+//}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_co5da"]
+shader = SubResource("Shader_0sykp")
+
+[sub_resource type="Animation" id="Animation_8u3pg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"lyrics"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [230]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sprite:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("sprite:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_ylxbb"]
 resource_name = "idle"
@@ -87,6 +163,59 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_co5da"]
+resource_name = "lyrics"
+length = 12.0
+step = 12.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"lyrics"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sprite:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("sprite:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(96.96, -88.865)]
 }
 
 [sub_resource type="Animation" id="Animation_1563e"]
@@ -419,8 +548,10 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6013n"]
 _data = {
+&"RESET": SubResource("Animation_8u3pg"),
 &"idle": SubResource("Animation_ylxbb"),
 &"idle_small": SubResource("Animation_gofrl"),
+&"lyrics": SubResource("Animation_co5da"),
 &"sing_down": SubResource("Animation_1563e"),
 &"sing_down_small": SubResource("Animation_bvpti"),
 &"sing_left": SubResource("Animation_1u2uk"),
@@ -432,7 +563,8 @@ _data = {
 }
 
 [node name="CumFunkinIsTheBeast" type="Node2D" node_paths=PackedStringArray("anim_player", "sprite", "camera_position")]
-script = ExtResource("1_rxewt")
+z_index = 1
+script = ExtResource("1_gk6q3")
 icon = ExtResource("2_lc4dn")
 sing_length = 6.1
 anim_player = NodePath("anim_player")
@@ -440,15 +572,17 @@ sprite = NodePath("sprite")
 camera_position = NodePath("camera")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_co5da")
+use_parent_material = true
 position = Vector2(8, -422)
 sprite_frames = ExtResource("3_rqftf")
-animation = &"ElIdleBIG"
-frame = 14
-frame_progress = 1.0
+animation = &"lyrics"
+frame = 230
 script = ExtResource("4_2vpyk")
 
 [node name="big_to_small" type="AnimatedSprite2D" parent="sprite"]
 visible = false
+use_parent_material = true
 position = Vector2(4, 3)
 sprite_frames = ExtResource("5_ubvnf")
 animation = &"ElUngrow"
@@ -456,6 +590,7 @@ script = ExtResource("4_2vpyk")
 
 [node name="small_to_big" type="AnimatedSprite2D" parent="sprite"]
 visible = false
+use_parent_material = true
 position = Vector2(71, -68)
 sprite_frames = ExtResource("6_6fmrk")
 animation = &"ElUnshrink"
@@ -463,7 +598,7 @@ script = ExtResource("4_2vpyk")
 
 [node name="anim_player" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_6013n")
+&"": SubResource("AnimationLibrary_6013n")
 }
 
 [node name="camera" type="Marker2D" parent="."]

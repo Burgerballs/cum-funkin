@@ -220,6 +220,7 @@ _data = {
 }
 
 [node name="bf" type="Node2D" node_paths=PackedStringArray("anim_player", "sprite", "camera_position")]
+z_index = 2
 scale = Vector2(0.95, 0.95)
 script = ExtResource("1_cx4bd")
 icon = ExtResource("2_10ghe")
@@ -231,13 +232,11 @@ camera_position = NodePath("camera")
 position = Vector2(-60, -378)
 sprite_frames = ExtResource("3_rp3x2")
 animation = &"BFIdle"
-frame = 14
-frame_progress = 1.0
 script = ExtResource("4_cbsmc")
 
 [node name="anim_player" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_6013n")
+&"": SubResource("AnimationLibrary_6013n")
 }
 
 [node name="camera" type="Marker2D" parent="."]

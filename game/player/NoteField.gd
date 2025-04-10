@@ -19,13 +19,16 @@ func _ready():
 #endregion
 
 var note_index:int = 0
+var note_spawn_distance:float = 1.5
+#var note_spawn_distance:float = 1000.0
+
 func queue_notes():
 		
 	for i in range(note_index,note_data.size()):
 		var data = note_data[i]
 		var scrollspeed = Game.chart.scroll_speed if SaveMan.get_data("scroll_speed",1.0) == 1.0 else SaveMan.get_data("scroll_speed",1.0)
 		var down_scroll_mult = 1.0 if not SaveMan.get_data("downscroll",false) else -1.0
-		if data.time > Conductor.time + (2.2/(scrollspeed/Conductor.rate)):
+		if data.time > Conductor.time + (note_spawn_distance/(scrollspeed/Conductor.rate)):
 			break
 		var hudskin = Game.instance.hud.skin
 		var note:Note = temp_note.instantiate()
