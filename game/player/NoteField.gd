@@ -66,7 +66,7 @@ func _process(delta):
 			note.queue_free()
 			
 		#note.global_position.y = (strum.global_position.y) - (450 * (Conductor.time - (note.time + (note.og_sustain_length - note.sustain_length)))) * (note.scroll_speed/Conductor.rate) * scale.y * down_scroll_mult
-		var note_pos = (450 * (Conductor.time - (note.time + (note.og_sustain_length - note.sustain_length))))
+		var note_pos = (450 * (Conductor.play_head - (note.time + (note.og_sustain_length - note.sustain_length))))
 		var note_transform = (note.scroll_speed/Conductor.rate) * scale.y * (down_scroll_mult * -1.0)
 		note.position.y = note_pos * note_transform
 		if note.was_hit:
@@ -79,5 +79,5 @@ func _process(delta):
 			
 			note.tail.position = (note.sustain.get_point_position(1)) + Vector2(0,tail_offset)*down_scroll_mult
 		if note.missed:
-			note.position.y = strum.position.y - (450 * (Conductor.time - (note.time + (note.og_sustain_length - note.sustain_length)))) * (note.scroll_speed/Conductor.rate) * down_scroll_mult
+			note.position.y = strum.position.y - (450 * (Conductor.play_head - (note.time + (note.og_sustain_length - note.sustain_length)))) * (note.scroll_speed/Conductor.rate) * down_scroll_mult
 	
