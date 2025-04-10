@@ -5,6 +5,7 @@ const fade_time = 1.75
 @onready var blu: CanvasLayer = $blu
 @export var field: Node2D
 @onready var black: ColorRect = $CanvasLayer2/black
+@onready var glass_break: AudioStreamPlayer = $"CumInMyFunkin/SillyMirror/glass break"
 
 var break_core_progress:float = 0.0:
 	set(v):

@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://cu1mjvdukin1e"]
+[gd_scene load_steps=11 format=3 uid="uid://cu1mjvdukin1e"]
 
 [ext_resource type="Script" uid="uid://c4wapmq4y26b" path="res://scenes/stages/the_mirror.gd" id="1_3ocln"]
 [ext_resource type="Texture2D" uid="uid://pvlb11vkmvkh" path="res://assets/stages/cumFunkinTest314159265358979323846264/silly_mirror.png" id="2_s24q8"]
 [ext_resource type="Texture2D" uid="uid://cv38ip2dsexrj" path="res://assets/stages/cumFunkinTest314159265358979323846264/broken_mirror.png" id="3_cbgg8"]
+[ext_resource type="AudioStream" uid="uid://bd4hjcv3ipeue" path="res://assets/sounds/mirror_break.ogg" id="4_i0qok"]
 [ext_resource type="SpriteFrames" path="res://assets/stages/cumFunkinTest314159265358979323846264/bgAssets.res" id="4_i6gge"]
 [ext_resource type="VideoStream" uid="uid://d0cuflplq5f1l" path="res://assets/songs/silly-billy/extraAssets/SO_STAY_FINAL.mp4" id="5_3ocln"]
 [ext_resource type="Shader" uid="uid://b46agxupygiiu" path="res://scenes/stages/BLU.gdshader" id="6_x3y2m"]
@@ -47,8 +48,13 @@ centered = false
 
 [node name="field" type="Node2D" parent="CumInMyFunkin/SillyMirror/Parallax2D"]
 modulate = Color(1, 1, 1, 0.6)
-position = Vector2(851, 1213)
+position = Vector2(901, 1213)
 scale = Vector2(1.2, 1.2)
+
+[node name="glass break" type="AudioStreamPlayer" parent="CumInMyFunkin/SillyMirror"]
+stream = ExtResource("4_i0qok")
+volume_db = 6.0
+bus = &"SFX"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CumInMyFunkin"]
 z_index = 1

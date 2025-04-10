@@ -55,16 +55,12 @@ func _process(delta:float):
 			bpm = i.bpm
 			continue
 	if audio:
-		if play_head == last_time:
-			play_head += delta
-		else:
-			play_head = time + AudioServer.get_time_since_last_mix()
 		if audio.playing:
 			time = audio.get_playback_position()
-			
-			
-		else:
-			time += delta
+			if play_head == last_time:
+				play_head += delta
+			else:
+				play_head = time + AudioServer.get_time_since_last_mix()
 	update(delta)
 func update(delta:float):
 	if audio:

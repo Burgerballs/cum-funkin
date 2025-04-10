@@ -16,7 +16,7 @@ func _ready() -> void:
 	pivot_offset = Vector2(640,360)
 	reload_icon_textures()
 	if not SaveMan.get_data("downscroll"):
-		bar.global_position.y = 720 - bar.global_position.y
+		bar.global_position.y = 720 - (bar.global_position.y) - 300
 		score_text.global_position.y = 720 - 70
 	update_score_text()
 	
@@ -30,9 +30,7 @@ func on_note_hit(player:Player,note:Note):
 	else:
 		if Game.instance.player_list[1].stats.health > 0.1:
 			Game.instance.player_list[1].stats.health -= 0.023*0.5
-
-		
-	pass
+@onready var label: Label = $Label
 func _process(delta: float) -> void:
 	scale = lerp(scale,Vector2.ONE,delta*5.0)
 	var bps = (Conductor.bpm/60.0)*4.0

@@ -62,8 +62,9 @@ func _event(event: Event) -> void:
 	var donut: String = event.name
 	var param1: String = str(event.one)
 	var param2: String = str(event.two)
-	
 	match donut.to_lower():
+		'icon switch':
+			hud.cpu_icon.icon_set = int(param1) - 1
 		'ill make':
 			match param1:
 				"pre":
@@ -85,6 +86,8 @@ func _event(event: Event) -> void:
 					create_tween().tween_property(game.stage,"break_core_progress",0.0,game.stage.fade_time).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 					shake_strangth = 0.01
 					shake_duration = 0.25
+					game.stage.glass_break.play(0.0)
+					print("MIRROR BREAK")
 					
 					
 				"black":
