@@ -96,7 +96,7 @@ animation = &"basic"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_a1vgh")
+&"": SubResource("AnimationLibrary_a1vgh")
 }
 
 [node name="desat_flicker_timer" type="Timer" parent="."]

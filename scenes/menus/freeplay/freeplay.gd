@@ -92,14 +92,14 @@ func change_item(i:int):
 func load_song(song_name:String):
 	Game.meta = Game.load_meta(song_name)
 	Game.chart = Chart.load_chart(song_name,freeplay_list[cur_item].difficultys[cur_diff],Game.meta.format)
-	SceneManager.switch_scene.call_deferred("res://scenes/gmae.tscn")
+	SceneManager.switch_scene("res://scenes/gmae.tscn")
 	
 	song_loaded = true
 func select_song():
 	if song_loading : return
 	song_loading = true
 	var song_name = freeplay_list[cur_item].song_name
-	var task = WorkerThreadPool.add_task(load_song.bind(song_name),true)
+	load_song(song_name)
 	pass
 	
 func change_diff(i:int = 0):

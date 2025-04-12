@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dl50mju8wm0l2"]
 
 [ext_resource type="Script" uid="uid://034cb1o7t4hk" path="res://assets/songs/silly-billy/scripts/video.gd" id="1_2pdms"]
-[ext_resource type="VideoStream" uid="uid://dqg617y3ntvpg" path="res://assets/songs/silly-billy/extraAssets/open.mp4" id="2_jpc4w"]
+[ext_resource type="VideoStream" uid="uid://dnhepig4imgll" path="res://assets/songs/silly-billy/extraAssets/open.ogv" id="2_yy6il"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 process_mode = 3
@@ -14,7 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-stream = ExtResource("2_jpc4w")
+stream = ExtResource("2_yy6il")
 expand = true
 
 [connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]

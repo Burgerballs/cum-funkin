@@ -20,8 +20,13 @@ func breakCore():
 const field_x = 1000.0
 const field_y = 1320.0
 var start:float = 0
+@onready var penos: VideoStreamPlayer = $open/penos
 func _ready() -> void:
 	dad_notefield.reparent(field,false)
 	dad_notefield.position = Vector2.ZERO
 	if not SaveMan.save.downscroll:
 		dad_notefield.position.y -= 450
+	await penos.finished
+	create_tween().tween_property(penos,"modulate:a",0,0.25)
+	camera.zoom = Vector2(1.125,1.125)
+	Game.instance.hud.scale = Vector2(1.25,1.25)

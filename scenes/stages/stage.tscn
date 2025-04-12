@@ -55,6 +55,7 @@ position = Vector2(800, 778)
 position = Vector2(280, 882)
 
 [node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
+visible = false
 z_as_relative = false
 position = Vector2(400, 130)
 sprite_frames = ExtResource("7_5l2ha")

@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dqui7yfaa7o5d"
-path.bptc="res://.godot/imported/Lookalike_Alt.png-ab599c79543428aabb5a1e1e459ddd3e.bptc.ctex"
+path="res://.godot/imported/Lookalike_Alt.png-ab599c79543428aabb5a1e1e459ddd3e.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/characters/sillyTheBilly/Lookalike_Alt.png"
-dest_files=["res://.godot/imported/Lookalike_Alt.png-ab599c79543428aabb5a1e1e459ddd3e.bptc.ctex"]
+dest_files=["res://.godot/imported/Lookalike_Alt.png-ab599c79543428aabb5a1e1e459ddd3e.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=4
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

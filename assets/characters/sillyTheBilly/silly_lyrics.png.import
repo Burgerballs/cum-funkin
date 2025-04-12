@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ce0xhh4jcgxhf"
-path.bptc="res://.godot/imported/silly_lyrics.png-d9c5f48856d6388ce8d3b5777e08c449.bptc.ctex"
+path="res://.godot/imported/silly_lyrics.png-d9c5f48856d6388ce8d3b5777e08c449.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/characters/sillyTheBilly/silly_lyrics.png"
-dest_files=["res://.godot/imported/silly_lyrics.png-d9c5f48856d6388ce8d3b5777e08c449.bptc.ctex"]
+dest_files=["res://.godot/imported/silly_lyrics.png-d9c5f48856d6388ce8d3b5777e08c449.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=4
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

@@ -43,7 +43,7 @@ func _process(delta: float) -> void:
 	
 	pass
 func update_score_text():
-	score_text.text = "Score: %s; Combo Breaks: %s; Accuracy: %0.3f%%; Combo: %s (%s Max);"%[stats.score,stats.combo_breaks,stats.accuracy*100.0,stats.combo,stats.max_combo]
+	score_text.text = "Score: %d; Combo Breaks: %d Accuracy: %0.3f%%; Combo: %d (%s Max);"%[stats.score,stats.combo_breaks,stats.accuracy*100.0,stats.combo,stats.max_combo]
 	pass
 func on_beat_hit(beat:int):
 	if beat %4 == 0:

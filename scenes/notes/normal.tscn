@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b4lu5fw4w2dij"]
+[gd_scene load_steps=9 format=3 uid="uid://b4lu5fw4w2dij"]
 
 [ext_resource type="Script" uid="uid://657o16agb7u2" path="res://scenes/notes/Note.gd" id="1_ubnsc"]
 [ext_resource type="Texture2D" uid="uid://cuf3xcpnm8ujr" path="res://assets/sustain.png" id="2_4ls32"]
@@ -10,7 +10,48 @@
 resource_local_to_scene = true
 shader = ExtResource("2_lahc0")
 shader_parameter/enabled = true
-shader_parameter/note_color = Color(0, 1, 0.916667, 1)
+shader_parameter/note_color = Color(0, 0.97, 0.953833, 1)
+
+[sub_resource type="Shader" id="Shader_m3wfe"]
+code = "shader_type canvas_item;
+
+vec3 rgb2hsv(vec3 c)
+{
+    vec4 K = vec4(0.0, -1.0 / 3.0, 2.0 / 3.0, -1.0);
+    vec4 p = mix(vec4(c.bg, K.wz), vec4(c.gb, K.xy), step(c.b, c.g));
+    vec4 q = mix(vec4(p.xyw, c.r), vec4(c.r, p.yzx), step(p.x, c.r));
+
+    float d = q.x - min(q.w, q.y);
+    float e = 1.0e-10;
+    return vec3(abs(q.z + (q.w - q.y) / (6.0 * d + e)), d / (q.x + e), q.x);
+}
+
+ vec3 hsv2rgb(vec3 c)
+{
+    vec4 K = vec4(1.0, 2.0 / 3.0, 1.0 / 3.0, 3.0);
+    vec3 p = abs(fract(c.xxx + K.xyz) * 6.0 - K.www);
+    return c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);
+}
+uniform vec3 hue:source_color;
+ void fragment()
+{
+    // Normalized pixel coordinates (from 0 to 1)
+    vec2 uv = UV;
+
+    // Time varying pixel color
+    vec3 source = texture(TEXTURE, UV).rgb;
+
+    vec3 hsv = rgb2hsv(source);
+    hsv.x = (rgb2hsv(hue).x*360.0) / 360.0;
+
+    vec3 dst = hsv2rgb(hsv);
+    // Output to screen
+    COLOR = vec4(dst,COLOR.a);
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3ca44"]
+shader = SubResource("Shader_m3wfe")
+shader_parameter/hue = Color(1, 0, 0, 1)
 
 [node name="Normal" type="Node2D"]
 z_index = 1
@@ -19,6 +60,7 @@ script = ExtResource("1_ubnsc")
 note_colors = Array[Color]([Color(0.760784, 0.294118, 0.6, 1), Color(0, 1, 1, 1), Color(0.0705882, 0.980392, 0.0196078, 1), Color(0.976471, 0.223529, 0.247059, 1)])
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_3ca44")
 use_parent_material = true
 sprite_frames = ExtResource("5_fqcuk")
 animation = &"left"

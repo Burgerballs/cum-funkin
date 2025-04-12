@@ -47,7 +47,7 @@ func _ready():
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta:float):
+func _process(delta: float) -> void:
 	last_time = time
 	for i in bpm_changes:
 		if time > i.time and _last_change != i:
@@ -55,17 +55,16 @@ func _process(delta:float):
 			bpm = i.bpm
 			continue
 	if audio:
-		if audio.playing:
-			time = audio.get_playback_position()
-			if play_head == last_time:
-				play_head += delta
-			else:
-				play_head = time + AudioServer.get_time_since_last_mix()
+		time = audio.get_playback_position()
+		if play_head == last_time:
+			play_head += delta
+		else:
+			play_head = time
 	update(delta)
 func update(delta:float):
 	if audio:
 		if audio.playing:
-			time = audio.get_playback_position() + AudioServer.get_time_since_last_mix()
+			time = audio.get_playback_position()
 		
 	var last_step = step
 	var last_beat = beat

@@ -11,6 +11,10 @@ var song_player:AudioStreamPlayer = null ## is set on play music shit
 var stage:Stage = null
 var song_script_objs:Array[Object] = []
 var player_list:Array[Player] = []
+
+
+var player_field:Player = null
+var cpu_field:Player = null
 static var shaders:bool = true
 var song_started:bool = false
 enum PlayMode {
@@ -67,6 +71,7 @@ func _ready():
 		nfield.note_data = chart.notes.duplicate()
 
 		player_list.append(pler)
+
 		if pler.does_input:
 			hud.stats = pler.stats
 		hud.add_child(pler)
@@ -87,7 +92,8 @@ func _ready():
 		p.notefield.visible = true
 		p.notefield.position.x = 640 - (160*0.7)*2.0
 			
-
+		cpu_field = player_list[0]
+		player_field = player_list[1]
 	instance = self
 #region music shits
 	var player:AudioStreamPlayer = AudioStreamPlayer.new()
@@ -150,6 +156,7 @@ func _process(delta):
 	if Conductor.time >= 0.0 and not song_started:
 		song_started = true
 		Conductor.audio.play()
+		hud.call("on_song_start")
 	if song_started:
 		
 		if last_stream_time != 0:
@@ -165,7 +172,7 @@ func end_song():
 	meta = null
 	match play_mode:
 		PlayMode.FREEPLAY:
-			SceneManager.switch_scene("res://scenes/menus/freeplay/freeplay.tscn")
+			SceneManager.switch_scene("res://scenes/menus/main_menu.tscn")
 		PlayMode.STORY:
 			SceneManager.switch_scene("res://scenes/menus/main_menu.tscn")
 			

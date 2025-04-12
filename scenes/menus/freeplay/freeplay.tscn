@@ -13,7 +13,7 @@ icon_texture = ExtResource("2_iv2lb")
 icon_frames = 2
 bg_color = Color(0.686275, 0.4, 0.807843, 1)
 song_name = "dad battle"
-display_name = "dad-battle"
+display_name = "[b]dad-battle[/b]"
 difficultys = Array[String](["easy", "normal", "hard"])
 
 [sub_resource type="Resource" id="Resource_xvvom"]

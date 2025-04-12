@@ -11,3 +11,5 @@ func on_step_hit(step:int):
 	pass
 func on_note_rate(player:Player,_rating:NoteRating):
 	pass
+func on_song_start():
+	pass

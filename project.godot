@@ -96,7 +96,6 @@ fullscreen={
 
 [physics]
 
-common/max_physics_steps_per_frame=1
 2d/physics_engine="Dummy"
 3d/physics_engine="Dummy"
 
