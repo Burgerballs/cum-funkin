@@ -385,7 +385,7 @@ script = ExtResource("4_l64ed")
 
 [node name="anim_player" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_6013n")
+&"": SubResource("AnimationLibrary_6013n")
 }
 
 [node name="trans" type="AnimatedSprite2D" parent="."]

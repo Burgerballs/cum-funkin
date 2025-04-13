@@ -40,7 +40,23 @@ func _init() -> void:
 	if chart == null:
 		chart = Chart.load_chart("silly-billy", "normal")
 func _ready():
+	instance = self
 	Conductor.reset()
+	#region music shits
+	var player:AudioStreamPlayer = AudioStreamPlayer.new()
+	player.stream = AudioStreamSynchronized.new()
+	player.stream.stream_count = 1 + Game.meta.voices.size()
+	player.bus = "music"
+	player.stream.set_sync_stream(0,meta.inst)
+	Conductor.audio = player
+	tracks.add_child(player)
+	var s = 0
+	for i in Game.meta.voices:
+		player.stream.set_sync_stream(s+1,i)
+		s += 1
+	song_player = player
+	Conductor.audio.pitch_scale = Conductor.rate
+#endregion
 	event_manager.events = meta.events + chart.events
 	for i in event_manager.events:
 		i._ready()
@@ -57,7 +73,9 @@ func _ready():
 		nfield.global_position.y = 100
 		
 		const strum_offset = 160*0.7
-		nfield.global_position.x = strum_offset + 640 * i
+		print(hud.size.x)
+
+		
 		
 		nfield.strums = load("res://scenes/strumlines/normal.tscn").instantiate()
 		hud.add_child(nfield)
@@ -69,6 +87,8 @@ func _ready():
 		pler.id = i
 		nfield.player = pler
 		nfield.note_data = chart.notes.duplicate()
+		nfield.global_position.x = 640 + 35 - 250
+		nfield.global_position.x += 310 if nfield.player.does_input else -320
 
 		player_list.append(pler)
 
@@ -90,28 +110,11 @@ func _ready():
 		for i in player_list:
 			i.notefield.visible = false
 		p.notefield.visible = true
-		p.notefield.position.x = 640 - (160*0.7)*2.0
+		p.notefield.position.x = 640/2 - (160*0.7)*2.0
 			
-		cpu_field = player_list[0]
-		player_field = player_list[1]
-	instance = self
-#region music shits
-	var player:AudioStreamPlayer = AudioStreamPlayer.new()
-	player.stream = AudioStreamSynchronized.new()
-	player.stream.stream_count = 1 + Game.meta.voices.size()
-	player.bus = "music"
-	player.stream.set_sync_stream(0,meta.inst)
-	Conductor.audio = player
-	tracks.add_child(player)
-	var s = 0
-	for i in Game.meta.voices:
-		player.stream.set_sync_stream(s+1,i)
-		s += 1
-	song_player = player
-	Conductor.audio.pitch_scale = Conductor.rate
+	
 
-		
-#endregion
+	instance = self
 #region stage shits
 	if !meta.stage.can_instantiate():
 		var col = ColorRect.new()
@@ -136,13 +139,14 @@ func _ready():
 			stage.add_child(dad)
 			player_list[0].chars.append(dad)
 
-#endregion#region song scripts shits
+#endregion
+
+	ui_layer.add_child(hud)
+#region song scripts shits
 	for obj:Object in song_script_objs:
 		if obj is Node:
 			add_child(obj)
 	#endregion
-	ui_layer.add_child(hud)
-
 var last_stream_time:float = 0.0
 var cur_event:int = 0
 var song_time:float

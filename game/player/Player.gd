@@ -126,6 +126,17 @@ func note_hit(note:Note,cheat:bool = false):
 		stats.notes_hit += 1
 		stats.health += 0.023
 		stats.score += rating.score
+		match rating.rating.to_lower():
+			"sick", "marvelous":
+				stats.accuracy_points += 1.0
+			"good":
+				stats.accuracy_points += 0.67
+			"bad":
+				stats.accuracy_points += 0.34
+			_:
+				pass
+		stats.accuracy = stats.accuracy_points / (stats.notes_hit + stats.combo_breaks)
+				
 		if Game.instance:
 			Game.instance.hud.on_note_rate(self,rating)
 	else:

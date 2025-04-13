@@ -21,22 +21,27 @@ var cur_rate:float = 1.0:
 var cur_diff:int = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	camera.position.x = 640
 	var count:int = 0
 	for i:FreeplayData in freeplay_list:
 		if i == null:
 			i = FreeplayData.new()
 		var item:Node2D = temp_item.duplicate()
 		var item_icon:Sprite2D = item.get_node("icon")
-		var item_label:RichTextLabel = item.get_node("icon/song_name")
-		item_label.position.x = 75
-		item.position.y += 160*count
-		item.position.x += 75*count
+		var item_label:Alphabet = item.get_node("song_name")
+		item_label.position.x = 0
+		item.position.x = 90 / 2
+		item.position.y = 320
+		
+		item.position.y += 120 * 1.3 *count
 		item_icon.texture = i.icon_texture
 		item_icon.hframes = i.icon_frames
 		item_label.text = i.song_name
 		
 		if not i.display_name.is_empty():
 			item_label.text = i.display_name
+		item_icon.position.x = item_label.size.x*1.15
+		item_icon.position.y += 40
 		add_child(item)
 		items.append(item)
 		count += 1
@@ -83,7 +88,8 @@ func change_item(i:int):
 	AudioManager.play_sfx(AudioManager.MENU_SCROLL)
 	cur_item += i
 	camera.position.y = items[cur_item].position.y
-	camera.position.x = 640 + (cur_item * 75)
+	
+	
 	var diffs = freeplay_list[cur_item].difficultys
 	
 	if diffs.has(cur_diff_str):

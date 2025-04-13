@@ -1,4 +1,5 @@
 extends Node2D
+signal measure_hit(measure:int)
 signal beat_hit(beat:int)
 signal step_hit(step:int)
 		
@@ -27,9 +28,13 @@ var beat_crochet:float:
 var step_crochet:float:
 	get:
 		return 15.0/bpm
+var measure:float = 0.0
 var beat:float = 0.0
 var step:float = 0.0
 
+var measurei:int:
+	get:
+		return floor(measure)
 var beati:int:
 	get:
 		return floor(beat)
@@ -65,6 +70,8 @@ func update(delta:float):
 	if audio:
 		if audio.playing:
 			time = audio.get_playback_position()
+		else:
+			time += delta
 		
 	var last_step = step
 	var last_beat = beat
@@ -79,8 +86,7 @@ func update(delta:float):
 			step_hit.emit(floori(i))
 	if floori(beat) > floori(last_beat):
 		for i in range(last_beat + 1, beat + 1):
-			print("BEAT HIT %d!!"%floori(i))
-			beat_hit.emit(floori(i))
+				beat_hit.emit(floori(i))
 func reset():
 	bpm_changes.clear()
 	time = 0.0

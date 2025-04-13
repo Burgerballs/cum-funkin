@@ -1,6 +1,7 @@
 class_name Character extends Node2D
 
 @export var icon:Texture
+@export var icon_color:Color = Color.LIME
 @export var sing_length:float = 4.0
 @export var dance_steps:PackedStringArray = ["idle"]
 @export var anim_suffix:StringName = &''

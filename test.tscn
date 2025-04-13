@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://ddt0pkyg6v64f"]
+[gd_scene load_steps=5 format=3 uid="uid://ddt0pkyg6v64f"]
 
 [ext_resource type="Shader" uid="uid://d4i6gsl8lrpby" path="res://assets/characters/sillyTheBilly/cromakey.gdshader" id="1_8uh7m"]
-[ext_resource type="Texture2D" uid="uid://q5njjjkw7ikf" path="res://icon.svg" id="2_8uh7m"]
+[ext_resource type="Script" uid="uid://dvqrbbvhpnj5k" path="res://assets/freeplay/Alphabet.gd" id="2_8uh7m"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ppyta"]
 shader = ExtResource("1_8uh7m")
@@ -12,46 +12,58 @@ shader_parameter/feathering = 0.1
 
 [sub_resource type="GDScript" id="GDScript_8uh7m"]
 script/source = "extends Node2D
-
-@onready var sprite_2d: Sprite2D = $Sprite2D
-
+@onready var alphabet: Alphabet = $Alphabet
 
 func _ready() -> void:
 	pass
+func _process(delta: float) -> void:
+	if Input.is_action_pressed(\"ui_accept\"):
+		alphabet.bold = !alphabet.bold
+func _input(event: InputEvent) -> void:
+	if !event is InputEventKey or event.is_echo() or event.is_released():
+		return
+	event = event as InputEventKey
+	event.as_text_keycode()
+	print(event.as_text_physical_keycode())
 "
-
-[sub_resource type="Shader" id="Shader_8uh7m"]
-code = "shader_type canvas_item;
-
-instance uniform vec4 color:source_color = vec4(.9);
-void vertex() {
-	// Called for every vertex the material is visible on.
-}
-void fragment() {
-	COLOR -= color;
-	// Called for every pixel the material is visible on.
-}
-
-//void light() {
-//	// Called for every pixel for every light affecting the CanvasItem.
-//	// Uncomment to replace the default light processing function with this one.
-//}
-"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_6uqi0"]
-shader = SubResource("Shader_8uh7m")
 
 [node name="VideoStreamPlayer" type="Node2D"]
 material = SubResource("ShaderMaterial_ppyta")
 script = SubResource("GDScript_8uh7m")
-metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(640, 360)
-metadata/_edit_lock_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_6uqi0")
-position = Vector2(640, 360)
-scale = Vector2(2, 2)
-texture = ExtResource("2_8uh7m")
+[node name="Alphabet" type="Node2D" parent="."]
+position = Vector2(203, 338)
+scale = Vector2(0.33, 0.33)
+script = ExtResource("2_8uh7m")
+text = "alphabet dot GD
+alphabet dot GD
+alphabet dot GD
+alphabet dot GD
+alphabet dot GD
+alphabet dot GD
+alphabet dot GD
+alphabet dot GD
+alphabet dot GD
+alphabet dot GD
+alphabet dot GD
+alphabet dot GD
+alphabet dot GD
+alphabet dot GD
+alphabet dot GD
+alphabet dot GD
+alphabet dot GD
+alphabet dot GD
+alphabet dot GD
+alphabet dot GD
+alphabet dot GD
+alphabet dot GD
+alphabet dot GD
+alphabet dot GD
+alphabet dot GD
+alphabet dot GD
+alphabet dot GD
+"
+metadata/_custom_type_script = "uid://dvqrbbvhpnj5k"
