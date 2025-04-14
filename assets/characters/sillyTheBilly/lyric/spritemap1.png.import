@@ -3,22 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dxyn7c4av04vg"
-path.bptc="res://.godot/imported/spritemap1.png-926cbc494bffccb3fa3176820abb5c8d.bptc.ctex"
+path="res://.godot/imported/spritemap1.png-926cbc494bffccb3fa3176820abb5c8d.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/characters/sillyTheBilly/lyric/spritemap1.png"
-dest_files=["res://.godot/imported/spritemap1.png-926cbc494bffccb3fa3176820abb5c8d.bptc.ctex"]
+dest_files=["res://.godot/imported/spritemap1.png-926cbc494bffccb3fa3176820abb5c8d.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=true
-compress/lossy_quality=0.7
+compress/lossy_quality=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0

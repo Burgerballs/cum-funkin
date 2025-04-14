@@ -32,7 +32,6 @@ func on_note_hit(player:Player,note:Note):
 			Game.instance.player_list[1].stats.health -= 0.023*0.5
 @onready var label: Label = $Label
 func _process(delta: float) -> void:
-	scale = lerp(scale,Vector2.ONE,delta*5.0)
 	var bps = (Conductor.bpm/60.0)*4.0
 	player_icon.position.x = 400 + 75
 	cpu_icon.position.x = 405 - cpu_icon.get_rect().size.x/2 + 25
@@ -44,10 +43,6 @@ func _process(delta: float) -> void:
 	pass
 func update_score_text():
 	score_text.text = "Score: %d; Combo Breaks: %d Accuracy: %0.3f%%; Combo: %d (%s Max);"%[stats.score,stats.combo_breaks,stats.accuracy*100.0,stats.combo,stats.max_combo]
-	pass
-func on_beat_hit(beat:int):
-	if beat %4 == 0:
-		scale += Vector2(0.05,0.05)
 	pass
 	
 func on_step_hit(step:int):

@@ -16,7 +16,7 @@ static var rate:float = 1.0
 var cur_rate:float = 1.0:
 	set(v):
 		cur_rate = v
-		rate_label.text = "rate: %s"%cur_rate
+		rate_label.text = "rate: %0.1f"%cur_rate
 		Conductor.rate = cur_rate
 var cur_diff:int = 0
 # Called when the node enters the scene tree for the first time.
@@ -62,26 +62,26 @@ func _process(delta: float) -> void:
 		
 	pass
 func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("ui_down"):
+	if event.is_action_pressed("ui_down"):
 		change_item(1)
-	if Input.is_action_just_pressed("ui_up"):
+	if event.is_action_pressed("ui_up"):
 		change_item(-1)
 	## diff
-	if Input.is_action_just_pressed("ui_left"):
+	if event.is_action("ui_left"):
 		if event is InputEventKey:
 			if event.shift_pressed:
 				cur_rate -= 0.1
 			else:
 				change_diff(-1)
-	if Input.is_action_just_pressed("ui_right"):
+	if event.is_action("ui_right"):
 		if event.shift_pressed:
 				cur_rate += 0.1
 				
 		else:
 			change_diff(1)
-	if Input.is_action_just_pressed("ui_accept"):
+	if event.is_action_pressed("ui_accept"):
 		select_song()
-	if Input.is_action_just_pressed("ui_cancel"):
+	if event.is_action_pressed("ui_cancel"):
 		SceneManager.switch_scene("res://scenes/menus/main_menu.tscn")
 func change_item(i:int):
 	if song_loading : return

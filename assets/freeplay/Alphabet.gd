@@ -14,7 +14,7 @@ var width
 func is_upper_str(str:String):
 	return str.to_lower() != str
 func is_alpha(str:String):
-	var alphabet:String = "abcdefghijklmnopqrstuvwxyz"
+	var alphabet:String = "abcdefghijklmnopqrstuvwxyzáàãâéèêíìĩîóòõôúùũûçñýỳŷỹÿøž"
 	for i in alphabet:
 		if str.to_lower() == i:
 			return true
@@ -50,6 +50,7 @@ func generate_sprites(text_changed:bool = true):
 			ROWS += 1
 			DICK = 0
 			continue
+		if !frames.has_animation(anim_name): continue
 			
 		letter.sprite_frames = frames
 		var letter_offset:int = 0

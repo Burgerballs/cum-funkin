@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ChartMeta" load_steps=15 format=3 uid="uid://cauanqx6tdm0y"]
+[gd_resource type="Resource" script_class="ChartMeta" load_steps=13 format=3 uid="uid://cauanqx6tdm0y"]
 
 [ext_resource type="Script" uid="uid://do4xfvs8bawrr" path="res://game/events/Event.gd" id="1_4t6iu"]
 [ext_resource type="PackedScene" uid="uid://b4sj84ynwumgv" path="res://scenes/characters/dad.tscn" id="1_uhsbn"]
@@ -7,8 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://b4gup1dd6m6bb" path="res://scenes/hud/psych_hud.tscn" id="3_k11v5"]
 [ext_resource type="AudioStream" uid="uid://b7uohb4xoslhm" path="res://assets/songs/dad battle/Dadbattle_Inst.ogg" id="3_qx60g"]
 [ext_resource type="PackedScene" uid="uid://bc6bkwlvdvn5k" path="res://scenes/characters/bf.tscn" id="4_avx73"]
-[ext_resource type="Script" uid="uid://8dllkb4l1bub" path="res://assets/songs/default_song_scripts/cameraBump.gd" id="4_yju3d"]
-[ext_resource type="Script" uid="uid://sinrrx6q8crj" path="res://assets/songs/default_song_scripts/pause.gd" id="5_uqh10"]
 [ext_resource type="AudioStream" uid="uid://caxrle8214m4l" path="res://assets/songs/dad battle/Dadbattle_Voices.ogg" id="9_7hftg"]
 [ext_resource type="PackedScene" uid="uid://cyd7777vg0jb3" path="res://scenes/stages/stage.tscn" id="10_go2q6"]
 [ext_resource type="Resource" uid="uid://cp2wsuaqmxne7" path="res://assets/ui_skins/default.tres" id="11_joqgy"]
@@ -29,7 +27,7 @@ inst = ExtResource("3_qx60g")
 voices = Array[AudioStream]([ExtResource("9_7hftg")])
 cpu_character = ExtResource("1_uhsbn")
 player_character = ExtResource("4_avx73")
-song_scripts = Array[Script]([ExtResource("4_yju3d"), ExtResource("5_uqh10")])
+song_scripts = Array[Script]([])
 script_packs = Array[Script]([])
 ui_skin = ExtResource("11_joqgy")
 events = Array[ExtResource("1_4t6iu")]([])

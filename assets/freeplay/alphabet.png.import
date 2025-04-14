@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cg6u7cq3183rd"
-path.bptc="res://.godot/imported/alphabet.png-a6c0209dd462cdabed2accc20b04448f.bptc.ctex"
+path="res://.godot/imported/alphabet.png-a6c0209dd462cdabed2accc20b04448f.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/freeplay/alphabet.png"
-dest_files=["res://.godot/imported/alphabet.png-a6c0209dd462cdabed2accc20b04448f.bptc.ctex"]
+dest_files=["res://.godot/imported/alphabet.png-a6c0209dd462cdabed2accc20b04448f.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

@@ -12,3 +12,5 @@ class_name UISkin extends Resource
 @export var noteskin_frames:SpriteFrames = SpriteFrames.new()
 @export var noteskin_hold_textures:Array[Texture] = []
 @export var noteskin_tail_textures:Array[Texture] = []
+@export var noteskin_splash_scale:float = 1.0
+@export var noteskin_splash_frames:SpriteFrames = SpriteFrames.new()

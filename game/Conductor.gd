@@ -10,6 +10,7 @@ var rate:float = 1.0:
 		if audio != null:
 			audio.pitch_scale = rate
 
+var freeze_playhead:bool = false
 
 var audio:AudioStreamPlayer = null
 # bpm change balls
@@ -42,7 +43,6 @@ var stepi:int:
 	get:
 		return floor(step)
 var _last_change:BpmChangeEvent = BpmChangeEvent.new()
-
 func queue_bpm_change(change_event:BpmChangeEvent):
 	if not bpm_changes.has(change_event):
 		bpm_changes.append(change_event)
@@ -61,17 +61,16 @@ func _process(delta: float) -> void:
 			continue
 	if audio:
 		time = audio.get_playback_position()
-		if play_head == last_time:
-			play_head += delta
-		else:
-			play_head = time
+		if !freeze_playhead:
+			if play_head == last_time:
+				play_head += delta
+			else:
+				play_head = time
 	update(delta)
 func update(delta:float):
 	if audio:
 		if audio.playing:
 			time = audio.get_playback_position()
-		else:
-			time += delta
 		
 	var last_step = step
 	var last_beat = beat

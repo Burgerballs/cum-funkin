@@ -16,7 +16,7 @@ dest_files=["res://.godot/imported/icon-hog.png-9f11afd45ce23d99dde94fd287fa24d1
 [params]
 
 compress/mode=0
-compress/high_quality=false
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

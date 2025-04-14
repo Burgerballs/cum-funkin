@@ -97,10 +97,5 @@ func update_score_text():
 	pass
 func on_beat_hit(beat:int):
 	icons.scale += Vector2(0.2,0.2)
-	
-	if beat %4 == 0:
-		scale += Vector2(0.05,0.05)
-	pass
-	
 func on_step_hit(step:int):
 	pass

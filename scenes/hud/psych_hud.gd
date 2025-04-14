@@ -38,7 +38,7 @@ func _ready() -> void:
 	score_txt.position.y = healthbar.position.y + 40
 	Conductor.beat_hit.connect(_on_beat_hit)
 func update_score_text():
-	if stats.ratings.good == 0 and stats.ratings.bad == 0 and stats.ratings.shit == 0:
+	if stats.ratings.good == 0 and stats.ratings.bad == 0 and stats.ratings.shit == 0 and stats.combo_breaks == 0:
 			rating_name = "Perfect!!"
 	else:
 		rating_name = "Sick!"
@@ -73,7 +73,6 @@ func on_song_start():
 	create_tween().tween_property(time_txt,"modulate:a",1,0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CIRC)
 var bar_center:float = 0
 func _process(delta: float) -> void:
-	scale = lerp(scale,Vector2.ONE,delta*5.0)
 	healthbar.value = 2.0 - stats.health
 	timebar.value = Conductor.time
 	time_txt.text = format_time(Conductor.time)
@@ -120,7 +119,6 @@ func on_note_rate(player:Player,_rating:NoteRating):
 	rating_tween.tween_property(rating,"modulate:a",0,0.2).set_delay(Conductor.beat_crochet).finished.connect(func(): rating.queue_free())
 	## show combo
 	var combo_pad = str(player.stats.combo).pad_zeros(3)
-	print(combo_pad)
 	var daloop:int = 0
 	for i in combo_pad:
 		var num_score:VelocitySprite = VelocitySprite.new()
@@ -151,5 +149,3 @@ func on_note_miss(player:Player,note:Note):
 func _on_beat_hit(b):
 	icon_p1.scale = Vector2(1.2,1.2)
 	icon_p2.scale = Vector2(1.2,1.2)
-	if b%4 == 0:
-		scale += Vector2(0.05,0.05)

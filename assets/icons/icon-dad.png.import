@@ -16,7 +16,7 @@ dest_files=["res://.godot/imported/icon-dad.png-65135bf78f426198a55e3e9cd4d2d41f
 [params]
 
 compress/mode=0
-compress/high_quality=false
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

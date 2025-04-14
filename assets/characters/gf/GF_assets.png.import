@@ -3,22 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://61nd0bww6gfj"
-path.bptc="res://.godot/imported/GF_assets.png-bbd4d9de76b5d9108791a34dfa7f593b.bptc.ctex"
+path="res://.godot/imported/GF_assets.png-bbd4d9de76b5d9108791a34dfa7f593b.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/characters/gf/GF_assets.png"
-dest_files=["res://.godot/imported/GF_assets.png-bbd4d9de76b5d9108791a34dfa7f593b.bptc.ctex"]
+dest_files=["res://.godot/imported/GF_assets.png-bbd4d9de76b5d9108791a34dfa7f593b.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=true
-compress/lossy_quality=0.7
+compress/lossy_quality=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0

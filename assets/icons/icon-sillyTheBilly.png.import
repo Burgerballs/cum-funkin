@@ -16,7 +16,7 @@ dest_files=["res://.godot/imported/icon-sillyTheBilly.png-f6c8e7ab2d6123f52b0498
 [params]
 
 compress/mode=0
-compress/high_quality=false
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

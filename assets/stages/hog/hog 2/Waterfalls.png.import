@@ -3,22 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dus3wds4nffe4"
-path.bptc="res://.godot/imported/Waterfalls.png-b4a4f766fd91cab7263e24c37e20414d.bptc.ctex"
+path="res://.godot/imported/Waterfalls.png-b4a4f766fd91cab7263e24c37e20414d.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/stages/hog/hog 2/Waterfalls.png"
-dest_files=["res://.godot/imported/Waterfalls.png-b4a4f766fd91cab7263e24c37e20414d.bptc.ctex"]
+dest_files=["res://.godot/imported/Waterfalls.png-b4a4f766fd91cab7263e24c37e20414d.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=true
-compress/lossy_quality=0.7
+compress/lossy_quality=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0

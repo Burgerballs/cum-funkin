@@ -15,9 +15,9 @@ dest_files=["res://.godot/imported/Yourself_BF_Assets.png-3959a6f19ac6e843e80edc
 
 [params]
 
-compress/mode=4
+compress/mode=0
 compress/high_quality=true
-compress/lossy_quality=0.7
+compress/lossy_quality=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0

@@ -16,8 +16,8 @@ dest_files=["res://.godot/imported/menuDesat.png-75d2a05285575ccca1c93242d3affbe
 [params]
 
 compress/mode=0
-compress/high_quality=false
-compress/lossy_quality=0.7
+compress/high_quality=true
+compress/lossy_quality=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0

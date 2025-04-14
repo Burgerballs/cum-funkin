@@ -105,7 +105,7 @@ func _unhandled_input(event):
 func note_miss(note:Note):
 	
 	stats.combo = 0
-	stats.health -= 0.04/(1.0 + note.sustain_length)
+	stats.health -= 0.05/(1.0 + note.sustain_length)
 	stats.combo_breaks += 1
 	for i in chars:
 		i.sing(note.column,"_miss")
@@ -124,10 +124,10 @@ func note_hit(note:Note,cheat:bool = false):
 		strum.material = note.material.duplicate(false)
 		stats.combo += 1
 		stats.notes_hit += 1
-		stats.health += 0.023
+		stats.health += 0.02
 		stats.score += rating.score
 		match rating.rating.to_lower():
-			"sick", "marvelous":
+			"sick","marvelous":
 				stats.accuracy_points += 1.0
 			"good":
 				stats.accuracy_points += 0.67

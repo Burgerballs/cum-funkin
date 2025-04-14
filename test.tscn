@@ -38,32 +38,4 @@ position = Vector2(640, 360)
 position = Vector2(203, 338)
 scale = Vector2(0.33, 0.33)
 script = ExtResource("2_8uh7m")
-text = "alphabet dot GD
-alphabet dot GD
-alphabet dot GD
-alphabet dot GD
-alphabet dot GD
-alphabet dot GD
-alphabet dot GD
-alphabet dot GD
-alphabet dot GD
-alphabet dot GD
-alphabet dot GD
-alphabet dot GD
-alphabet dot GD
-alphabet dot GD
-alphabet dot GD
-alphabet dot GD
-alphabet dot GD
-alphabet dot GD
-alphabet dot GD
-alphabet dot GD
-alphabet dot GD
-alphabet dot GD
-alphabet dot GD
-alphabet dot GD
-alphabet dot GD
-alphabet dot GD
-alphabet dot GD
-"
 metadata/_custom_type_script = "uid://dvqrbbvhpnj5k"

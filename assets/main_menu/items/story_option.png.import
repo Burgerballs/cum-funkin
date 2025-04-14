@@ -16,8 +16,8 @@ dest_files=["res://.godot/imported/story_option.png-8c6e4c71a0c87052f4b4b7eacdb6
 [params]
 
 compress/mode=0
-compress/high_quality=false
-compress/lossy_quality=0.7
+compress/high_quality=true
+compress/lossy_quality=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0

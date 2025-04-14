@@ -16,8 +16,8 @@ dest_files=["res://.godot/imported/stage_light.png-f3e95304623a5711b2aca13af717f
 [params]
 
 compress/mode=0
-compress/high_quality=false
-compress/lossy_quality=0.7
+compress/high_quality=true
+compress/lossy_quality=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0

@@ -16,8 +16,8 @@ dest_files=["res://.godot/imported/overlaybetter.png-f96581ceaaa2c0d55b12fa10b6a
 [params]
 
 compress/mode=0
-compress/high_quality=false
-compress/lossy_quality=0.7
+compress/high_quality=true
+compress/lossy_quality=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0

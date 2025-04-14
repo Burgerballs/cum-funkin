@@ -11,10 +11,16 @@ class_name Character extends Node2D
 @export var anim_player:AnimationPlayer
 @export var sprite:AnimatedSprite2D
 @export var camera_position:Marker2D
+@export var death_character:PackedScene
 
 var _cur_anim:StringName = "NONE"
 var _sing_timer:float = 0.0
 var cur_dance_step:int = 0
+var can_dance:bool = true
+var can_sing:bool = true
+var special_anim:bool = false
+
+
 
 func set_is_player(v:bool):
 	is_player = v
@@ -25,6 +31,8 @@ func _ready():
 	dance()
 
 func play_anim(anim:StringName,force:bool = false) -> void:
+	if special_anim:
+		return
 	assert(is_instance_valid(sprite),"character sprite invalid")
 	if force:
 		sprite.frame = 0
@@ -37,6 +45,8 @@ func play_anim(anim:StringName,force:bool = false) -> void:
 	anim_player.play(anim + anim_suffix)
 	
 func dance():
+	if !can_dance:
+		return
 	_sing_timer = 0
 	if dance_steps.size() > 0:
 		play_anim(dance_steps[cur_dance_step%dance_steps.size()])

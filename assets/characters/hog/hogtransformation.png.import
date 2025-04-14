@@ -3,22 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cjor5mtorvqgf"
-path.bptc="res://.godot/imported/hogtransformation.png-9b413edde2a6f4b48292b4cdd53015de.bptc.ctex"
+path="res://.godot/imported/hogtransformation.png-9b413edde2a6f4b48292b4cdd53015de.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/characters/hog/hogtransformation.png"
-dest_files=["res://.godot/imported/hogtransformation.png-9b413edde2a6f4b48292b4cdd53015de.bptc.ctex"]
+dest_files=["res://.godot/imported/hogtransformation.png-9b413edde2a6f4b48292b4cdd53015de.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=true
-compress/lossy_quality=0.7
+compress/lossy_quality=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0

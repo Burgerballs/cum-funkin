@@ -3,20 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://3tmqlw8ys1du"
-path="res://.godot/imported/shit.png-13cfa2b0bfa721fe2d5e734e41c9dbdc.ctex"
+path.bptc="res://.godot/imported/shit.png-13cfa2b0bfa721fe2d5e734e41c9dbdc.bptc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/ratings/shit.png"
-dest_files=["res://.godot/imported/shit.png-13cfa2b0bfa721fe2d5e734e41c9dbdc.ctex"]
+dest_files=["res://.godot/imported/shit.png-13cfa2b0bfa721fe2d5e734e41c9dbdc.bptc.ctex"]
 
 [params]
 
-compress/mode=0
-compress/high_quality=false
+compress/mode=2
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

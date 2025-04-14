@@ -3,22 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://fd7g7s3sv44t"
-path.bptc="res://.godot/imported/DADDY_DEAREST.png-d4442ca7021e0af949e300d930de66c2.bptc.ctex"
+path="res://.godot/imported/DADDY_DEAREST.png-d4442ca7021e0af949e300d930de66c2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/characters/dad/DADDY_DEAREST.png"
-dest_files=["res://.godot/imported/DADDY_DEAREST.png-d4442ca7021e0af949e300d930de66c2.bptc.ctex"]
+dest_files=["res://.godot/imported/DADDY_DEAREST.png-d4442ca7021e0af949e300d930de66c2.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=true
-compress/lossy_quality=0.7
+compress/lossy_quality=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
